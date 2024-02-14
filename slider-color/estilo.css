@@ -1,0 +1,55 @@
+/* Estilos generales */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*De la linea 9 a la 16
+Se hace el contenedor body como responsivo es decir,
+adaptable a las pantallas, ademas se le agrega un tamaño y color de fondo   */
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(233, 240, 245);
+}
+
+/* Contenedores */
+
+/*De la linea 23 a la 34 
+Se hace el contenedor responsivo o ajustable de acuerdo al tamaño del contenedor
+madre que es (body), de tal forma que lo que este dentro de esto no se salga  */
+.contenedor-principal {
+  width: 50vw;
+  max-width: 600px;
+  min-height: 350px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 50px;
+}
+
+/*De la linea 38 a la 48 
+Se le agrega tamaño y estilo a los sub-contenedores, ademas hacerlos ajustables al 
+contenedor madre que se llama (contenedor-interno) */
+.color {
+  padding: 20px;
+  margin: 10px;
+  font-size: 2em;
+  font-weight: bold;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+label,
+p {
+  margin: 20px;
+}
