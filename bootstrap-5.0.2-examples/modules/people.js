@@ -1,7 +1,7 @@
 /*Microservicio para crear el CRUD de las personas de la galaxia */
 
 const express = require("express");
-const cnx = require("../modules/bdata");
+const cnx = require("./bdata");
 const people = express.Router();
 
 
@@ -22,7 +22,7 @@ people.get("/people/Listin",(req,res)=>{
 })//listo
 
 
-people.all("/people/Listin/:id",(req,res)=>{
+people.get("/people/Listin/:id",(req,res)=>{
     let id = req.params.id;
     cnx.query("SELECT * FROM people WHERE id = "+id, (error,datos)=>{
     try{
@@ -52,7 +52,7 @@ people.all("/people/Listin/:id",(req,res)=>{
         })//listo
         
 
-        people.get("/people/insert/:name/:lastname/:nickname/:email/:type",(req,res)=>{
+        people.all("/people/insert/:name/:lastname/:nickname/:email/:type",(req,res)=>{
             let name = req.params.name
             let lastname = req.params.lastname
             let nickname = req.params.nickname

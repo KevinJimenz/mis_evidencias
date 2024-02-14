@@ -1,7 +1,7 @@
 /*Microservicio para crear el CRUD del historial delictivo de las personas de la galaxia */
 
 const express = require("express");
-const cnx = require("../modules/bdata");
+const cnx = require("./bdata");
 const history = express.Router();
 
 /* Desarrollo de CRUD */
