@@ -72,16 +72,14 @@ people.get("/people/Listin/:id",(req,res)=>{
             })
 
 
-        people.put("/people/update/:id",(req,res)=>{
+        people.all("/people/update/:id/:name/:lastname/:nickname/:email/:type",(req,res)=>{
                 let id = req.params.id;
-                let frmData = {
-                    name: req.body.name,
-                    lastname: req.body.lastname,
-                    nickname: req.body.nickname,
-                    email: req.body.email,
-                    type: req.body.type
-                }   
-                 cnx.query("UPDATE people SET ? WHERE id= ?",[frmData,id], (error,datos)=>{
+                let name = req.params.name
+                let lastname = req.params.lastname
+                let nickname = req.params.nickname
+                let email = req.params.email  
+                let type = req.params.type  
+                 cnx.query("UPDATE people SET name = '"+name+"', lastname = '"+lastname+"' , nickname = '"+nickname+"', email = '"+email+"', type = '"+type+"' WHERE id= " +id, (error,datos)=>{
         
                  try{
                      res.status(200).send("Success update");
