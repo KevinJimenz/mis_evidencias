@@ -51,12 +51,13 @@ history.get("/history/deleteid/:id",(req,res)=>{
         })//listo
         
 
-        history.get("/history/insert/:name/:lastname/:nickname/:email/:type",(req,res)=>{
+        history.get("/history/insert/:description/:date/:note/:idPerson",(req,res)=>{
             let description = req.params.description
             let date = req.params.date
             let note = req.params.note
+            let idPerson = req.params.idPerson
     
-            cnx.query("INSERT INTO history VALUES ", (error,datos)=>{
+            cnx.query("INSERT INTO history VALUES ('','"+description+"','"+date+"','"+note+"','"+idPerson+"') ", (error,datos)=>{
             try{
             res.status(200).send("Success insert");
             }catch(error){
@@ -70,14 +71,14 @@ history.get("/history/deleteid/:id",(req,res)=>{
             })
 
 
-            history.put("/history/update/:id",(req,res)=>{
+            history.get("/history/update/:id/:description/:date/:note/:idPerson",(req,res)=>{
                 let id = req.params.id;
-                let frmData = {
-                    description: req.body.description,
-                    date: req.body.date,
-                    note: req.body.note
-                }   
-                 cnx.query("UPDATE history SET ? WHERE id= ?",[frmData,id], (error,datos)=>{
+                let description = req.params.description
+                let date =req.params.date
+                let note = req.params.note
+                let idPerson = req.params.idPerson
+                
+                 cnx.query("UPDATE history SET description = '"+description+"', date = '"+date+"' , note = '"+note+"', id_people = '"+idPerson+"' WHERE id= " +id, (error,datos)=>{
         
                  try{
                      res.status(200).send("Success update");
